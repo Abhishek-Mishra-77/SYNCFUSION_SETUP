@@ -2,44 +2,41 @@ import { FileManagerComponent, Inject, NavigationPane, Toolbar, DetailsView } fr
 
 const Default = () => {
 
-    const hostUrl = "http://localhost:8000/api/scanned/";
-
     return (
         <div>
             <div className="control-section">
-                <FileManagerComponent
-                    id="api_filemanager"
-                    ajaxSettings={{
-                        url: hostUrl + "get/scanned",
-                        uploadUrl: hostUrl + "upload/scanned",
-                        downloadUrl: hostUrl + "download/scanned",
-                        createUrl: hostUrl + "create/scanned",
-                        deleteUrl: hostUrl + "remove/scanned",
-                        renameUrl: hostUrl + "rename/scanned",
-                    }}
-                    toolbarSettings={{
-                        items: [
-                            'NewFolder',
-                            'SortBy',
-                            'Cut',
-                            'Copy',
-                            'Paste',
-                            'Delete',
-                            'Refresh',
-                            'Download',
-                            'Rename',
-                            'Selection',
-                            'View',
-                            'Details',
-                        ],
-                    }}
-                    showFileExtension={true}
-                    showThumbnail={true}
-                    view={"LargeIcons"}
-                >
-                    <Inject services={[NavigationPane, Toolbar, DetailsView]} />
-                </FileManagerComponent>
-
+                <div id="file-manager-container">
+                    <FileManagerComponent
+                        id="file_manager"
+                        ajaxSettings={{
+                            url: 'http://localhost:8000/api/list',
+                            uploadUrl: 'http://localhost:8000/api/upload',
+                            downloadUrl: 'http://localhost:8000/api/download',
+                            deleteUrl: 'http://localhost:8000/api/delete',
+                        }}
+                        toolbarSettings={{
+                            items: [
+                                'NewFolder',
+                                'SortBy',
+                                'Cut',
+                                'Copy',
+                                'Paste',
+                                'Delete',
+                                'Refresh',
+                                'Download',
+                                'Rename',
+                                'Selection',
+                                'View',
+                                'Details',
+                            ],
+                        }}
+                        showFileExtension={true}
+                        showThumbnail={true}
+                        view="LargeIcons"
+                    >
+                        <Inject services={[NavigationPane, Toolbar, DetailsView]} />
+                    </FileManagerComponent>
+                </div>
             </div>
         </div>
     );
