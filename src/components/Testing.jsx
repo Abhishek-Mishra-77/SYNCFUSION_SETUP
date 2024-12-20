@@ -9,10 +9,10 @@ const Default = () => {
                     <FileManagerComponent
                         id="file_manager"
                         ajaxSettings={{
-                            url: 'http://localhost:8000/api/list',
-                            uploadUrl: 'http://localhost:8000/api/upload',
-                            downloadUrl: 'http://localhost:8000/api/download',
-                            deleteUrl: 'http://localhost:8000/api/delete',
+                            url: 'http://localhost:8000/api/filemanager/list',
+                            uploadUrl: 'http://localhost:8000/api/filemanager/upload',
+                            downloadUrl: 'http://localhost:8000/api/filemanager/download',
+                            deleteUrl: 'http://localhost:8000/api/filemanager/delete',
                         }}
                         toolbarSettings={{
                             items: [
